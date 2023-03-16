@@ -12,6 +12,12 @@ const duration = document.querySelector('.time-duration');
 const fullscreenBtn = document.querySelector('.fullscreen');
 
 // Play & Pause ----------------------------------- //
+
+function showPlayIcon() {
+  playBtn.classList.replace('fa-pause', 'fa-play');
+  playBtn.setAttribute('title', 'Play')
+}
+
 function togglePlay() {
   if (video.paused) {
     video.play();
@@ -19,10 +25,11 @@ function togglePlay() {
     playBtn.setAttribute('title', 'Pause')
   } else {
     video.pause();
-    playBtn.classList.replace('fa-pause', 'fa-play');
-    playBtn.setAttribute('title', 'Play')
+    showPlayIcon();
   }
 }
+
+video.addEventListener('ended', showPlayIcon);
 
 
 // Progress Bar ---------------------------------- //
