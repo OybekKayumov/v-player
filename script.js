@@ -12,7 +12,17 @@ const duration = document.querySelector('.time-duration');
 const fullscreenBtn = document.querySelector('.fullscreen');
 
 // Play & Pause ----------------------------------- //
-
+function togglePlay() {
+  if (video.paused) {
+    video.play();
+    playBtn.classList.replace('fa-play', 'fa-pause');
+    playBtn.setAttribute('title', 'Pause')
+  } else {
+    video.pause();
+    playBtn.classList.replace('fa-pause', 'fa-play');
+    playBtn.setAttribute('title', 'Play')
+  }
+}
 
 
 // Progress Bar ---------------------------------- //
@@ -30,3 +40,6 @@ const fullscreenBtn = document.querySelector('.fullscreen');
 // Fullscreen ------------------------------- //
 
 
+// event listeners
+playBtn.addEventListener('click', togglePlay);
+video.addEventListener('click', togglePlay);
